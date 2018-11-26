@@ -1,5 +1,5 @@
 /*
- * Mario. 10 points.
+ * Mario. 10 points. INCOMPLETE.
  *
  * Write a function that prompts the user for a height, and prints a
  * Mario-style half-pyramid of that height.
@@ -26,7 +26,15 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 1 CODE HERE
+  let marioText = document.getElementById("mario-easy-output");
+  height = prompt("Please provide a height for the half-pyramid (the number must be between 1 and 23).");
+
+  if (height >= 1 && height <= 23) {
+
+  } else {
+    alert("The number you chose was an invalid input. Please enter a number between 1 and 23.");
+  }
+
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -69,7 +77,7 @@ function marioAgain() {
 }
 
 /*
- * Credit. 10 points.
+ * Credit. 10 points. IN PROGRESS.
  *
  * Write a function that prompts the user for a credit card number (valid
  * and invalid examples will be provided), and displays either:
@@ -114,7 +122,8 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  let creditText = document.getElementById("credit-output");
+  card = prompt("Please enter a credit card number.");
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
