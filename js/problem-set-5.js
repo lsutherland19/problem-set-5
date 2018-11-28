@@ -26,15 +26,22 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  let marioText = document.getElementById("mario-easy-output");
-  height = prompt("Please provide a height for the half-pyramid (the number must be between 1 and 23).");
+while (true){
+    height = prompt("Please input a height. The height must be between 1 and 23.")
+    height = Number(height);
+    if(height >= 1 && height <= 23 && Number.isInteger(height)) {
+      break;
+    };
+  };
+    let i = 1;
+    let hash = '#';
+    let lines = "<code>";
+    let spaces = height - 2;
 
-  if (height >= 1 && height <= 23) {
-
-  } else {
-    alert("The number you chose was an invalid input. Please enter a number between 1 and 23.");
+  while (i <= height){
+    
   }
-
+}
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -162,7 +169,9 @@ function credit() {
 
 function guess() {
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
+  let guessText = document.getElementById("guess-output");
+  guess = prompt("We have generated a random number between 1 and 1000. See if you can guess it.");
+
 
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
@@ -198,6 +207,8 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
