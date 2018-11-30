@@ -1,5 +1,5 @@
 /*
- * Mario. 10 points. INCOMPLETE.
+ * Mario. 10 points. DONE.
  *
  * Write a function that prompts the user for a height, and prints a
  * Mario-style half-pyramid of that height.
@@ -26,22 +26,31 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-while (true){
-    height = prompt("Please input a height. The height must be between 1 and 23.")
-    height = Number(height);
-    if(height >= 1 && height <= 23 && Number.isInteger(height)) {
-      break;
+  while (true){
+      height = prompt("Please enter a valid height");
+      height = Number(height);
+      if(height>=1 && height<=23 && Number.isInteger(height)){
+        break;
+      };
     };
-  };
     let i = 1;
     let hash = '#';
-    let lines = "<code>";
+    let line = "<code>";
     let spaces = height - 2;
 
-  while (i <= height){
-    
-  }
-}
+    while (i <= height){
+      let a = '';
+      for(let j=0; j<=spaces; j++){
+        a+='&nbsp;';
+      }
+      spaces--;
+      hash = hash + '#';
+      line = line + a + hash + "</br>";
+      i++;
+    }
+
+    document.getElementById("mario-easy-output").innerHTML=line;
+    line=line+"</code>"
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
