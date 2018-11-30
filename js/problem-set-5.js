@@ -58,7 +58,7 @@ function mario() {
 }
 
 /*
- * Mario, Again. 10 points.
+ * Mario, Again. 10 points. DONE.
  *
  * Write a function that prompts the user for a height, and prints a
  * Mario-style pyramid of that height.
@@ -117,7 +117,7 @@ function marioAgain() {
 }
 
 /*
- * Credit. 10 points. IN PROGRESS.
+ * Credit. 10 points. INCOMPLETE.
  *
  * Write a function that prompts the user for a credit card number (valid
  * and invalid examples will be provided), and displays either:
@@ -163,7 +163,18 @@ function credit() {
   //////////// DO NOT MODIFY
 
   let creditText = document.getElementById("credit-output");
-  card = prompt("Please enter a credit card number.");
+  card = prompt("Please enter a valid credit card number (American Express, Mastercard, or Visa).");
+  let cardLength = card.length;
+  cardNo=card.substring(0,2);
+  if (cardLength == 13 || cardLength == 15 || cardLength == 16){
+
+  }
+  else {
+
+  }
+
+
+
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
