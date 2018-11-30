@@ -27,9 +27,9 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   while (true){
-      height = prompt("Please enter a valid height");
+      height = prompt("Please enter a valid height within the range [1,23].");
       height = Number(height);
-      if(height>=1 && height<=23 && Number.isInteger(height)){
+      if(height >= 1 && height <= 23 && Number.isInteger(height)){
         break;
       };
     };
@@ -40,8 +40,8 @@ function mario() {
 
     while (i <= height){
       let a = '';
-      for(let j=0; j<=spaces; j++){
-        a+='&nbsp;';
+      for(let j = 0; j <= spaces; j++){
+        a += '&nbsp;';
       }
       spaces--;
       hash = hash + '#';
@@ -85,7 +85,31 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 2 CODE HERE
+  while (true){
+    height = prompt("Please enter a valid height within the range [1, 23].");
+    height = Number(height);
+    if(height >= 1 && height <= 23 && Number.isInteger(height)){
+      break;
+    };
+  };
+  let i = 1;
+  let hash = '#';
+  let lines = "<code>";
+  let beforeSpace = height - 2;
+  let afterSpace = '&nbsp' + '&nbsp';
+
+  while (i <= height){
+    let a = '';
+    for(let j = 0; j <= beforeSpace; j++) {
+      a += '&nbsp;';
+    }
+    beforeSpace--;
+    hash = hash + '#';
+    lines = lines + a + hash + afterSpace + hash + "</br>";
+    i++;
+  }
+  document.getElementById("mario-hard-output").innerHTML=lines;
+  lines = lines + "</code>"
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
