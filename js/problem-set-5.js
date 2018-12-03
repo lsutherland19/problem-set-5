@@ -237,9 +237,33 @@ function credit() {
 
 function guess() {
 
-  let guessText = document.getElementById("guess-output");
-  guess = prompt("We have generated a random number between 1 and 1000. See if you can guess it.");
+  let attemptNumber = 0;
+  let randomNumber = Math.floor(Math.random() * 999) + 1;
+  let found = false;
+  let userNumber;
+  while(found == false) {
+    userNumber = Number(prompt("We have generated a number between 1 and 1000. Please guess this number."));
+    if(userNumber <= 1000 && userNumber >= 1 && Number.isInteger(userNumber)) {
+      if(userNumber > randomNumber) {
+        alert("This guess was too high!")
+        attemptNumber += 1;
+      }
+      else if(userNumber < randomNumber) {
+        alert("This guess was too low!")
+        attemptNumber += 1;
+      }
+      else if(userNumber == randomNumber) {
+        alert("That was the correct guess! Congratulations!")
+        attemptNumber += 1;
+        found = true;
+        document.getElementById("guess-output").innerHTML = "Number: " + randomNumber + "<br/>Attempts: " + attemptNumber;
+      }
+    }
+    else {
+      continue;
+    }
 
+  }
 
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
