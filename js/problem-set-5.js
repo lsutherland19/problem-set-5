@@ -117,7 +117,7 @@ function marioAgain() {
 }
 
 /*
- * Credit. 10 points. INCOMPLETE.
+ * Credit. 10 points. DONE.
  *
  * Write a function that prompts the user for a credit card number (valid
  * and invalid examples will be provided), and displays either:
@@ -162,19 +162,43 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  let creditText = document.getElementById("credit-output");
-  card = prompt("Please enter a valid credit card number (American Express, Mastercard, or Visa).");
-  let cardLength = card.length;
-  cardNo=card.substring(0,2);
-  if (cardLength == 13 || cardLength == 15 || cardLength == 16){
+  let oddSum = 0;
+    let evenSum = 0;
+    while (true){
+      card = prompt("Enter your credit card number: ");
+      if ((card.length == 16 || card.length == 15 || card.length == 13) && Number.isInteger(Number(card))){
+        break;
+      }
+    }
+    for(let i = card.length - 2;i >= 0;i-=2) {
+      let num = Number(card[i]) * 2;
+      let strnum = num.toString();
+      let sumNum = 0;
+      for (let j = 0;j < strnum.length;j++){
+        sumNum = sumNum + Number(strnum[j]);
+      }
+      evenSum = sumNum+evenSum;
+      console.log(evenSum);
+    }
+    for(let k = card.length - 1; k >= 0;k-=2){
+      oddSum = oddSum + Number(card[k])
+    }
+    console.log(oddSum);
 
-  }
-  else {
+    if (card.length == 15 && (card[0] == 3 && (card[1] == 7 || card[1] == 4)) && (oddSum + evenSum)%10 == 0){
+      document.getElementById("credit-output").innerHTML="<img src ='./images/amex.png'/>";
+    }
+    else if ((card.length == 13 || card.length == 16) && card[0] == 4 && (oddSum+evenSum)%10 == 0){
+      document.getElementById("credit-output").innerHTML = "<img src ='./images/visa.png'/>";
+    }
+    else if (card.length == 16 && (card[0] == 5 && (card[1] == 1 || card[1] == 2 || card[1] == 4 || card[1] == 5)) && (oddSum + evenSum)%10 == 0){
+      document.getElementById("credit-output").innerHTML = "<img src ='./images/mastercard.png'/>";
+    }
+    else {
+      document.getElementById("credit-output").innerHTML = "<img src ='./images/invalid.png'/>";
+    }
 
-  }
-
-
-
+    card = Number(card);
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
