@@ -300,7 +300,37 @@ function hurricane() {
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
 
+  while(true) {
+      windspeed = Number(prompt("Please enter the windspeed of the hurricane."));
+      if (windspeed >= 0 && Number.isInteger(windspeed)) {
+        if(windspeed >= 157) {
+          document.getElementById("hurricane-output").innerHTML = "Category 5 Hurricane.";
+        }
+        else if(windspeed >= 130 && windspeed <= 156) {
+          document.getElementById("hurricane-output").innerHTML = "Category 4 Hurricane.";
+        }
+        else if(windspeed >= 111 && windspeed < 129) {
+          document.getElementById("hurricane-output").innerHTML = "Category 3 Hurricane.";
+        }
+        else if(windspeed >= 96 && windspeed < 110) {
+          document.getElementById("hurricane-output").innerHTML = "Category 2 Hurricane.";
+        }
+        else if(windspeed >= 74 && windspeed < 95) {
+          document.getElementById("hurricane-output").innerHTML = "Category 1 Hurricane.";
+        }
+        else if(windspeed >= 39 && windspeed < 73) {
+          document.getElementById("hurricane-output").innerHTML = "Tropical Storm.";
+        }
+        else if(windspeed <= 38) {
+          document.getElementById("hurricane-output").innerHTML = "The skies are calm...";
+        }
+        break;
+      }
+      else {
+        continue;
+      }
 
+    }
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
@@ -345,6 +375,24 @@ function gymnastics() {
    *       scores.push(secondScore);  // will likely be different than mine
    */
 
+   let i=1;
+   	while(i<=6){
+   		let inputScore=Number(prompt("Enter your score"));
+   		if (inputScore>=1 && inputScore<=10 && Number.isInteger(inputScore)){
+   			scores.push(inputScore);
+   		i++;
+   		}
+   	}
+   	scores.sort(function(a,b){return a-b;})
+   	let maximum=scores[5];
+   	let minimum=scores[0];
+   	let revisedScores=[];
+   	for(let j=1;j<5;j++){
+   		revisedScores.push(scores[j]);
+   	}
+   	let averageScore=((revisedScores[0]+revisedScores[1]+revisedScores[2]+revisedScores[3])/4).toFixed(2);
+   	document.getElementById("gymnastics-output").innerHTML="Discarded: "+minimum+", "+maximum+"</br>Score: "+averageScore;
+
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -384,6 +432,8 @@ function reportCard() {
    *       should be representative of the sum of the test scores, quiz
    *       scores, and homework scores the user enters, respectively.
    */
+
+
 
   ///////////////////// DO NOT MODIFY
   let tests = 0; ////// DO NOT MODIFY
