@@ -433,7 +433,67 @@ function reportCard() {
    *       scores, and homework scores the user enters, respectively.
    */
 
-
+let firstValue = prompt("Please enter a homework grade that is between 0.0 and 100:");
+  
+  while (Number(firstValue) != -1) {
+    while (Number(firstValue) < -1 || Number(firstValue) > 100) {
+      firstValue = prompt("Please enter a homework grade that is between 0.0 and 100. When all the homework grades have been entered, please enter -1:");
+    } 
+    if (Number(firstValue) == -1) {
+      break;
+    } else if (Number(firstValue) >= 0 && Number(firstValue) <= 100){
+      firstValue = Number(firstValue);
+      homeworkTotal = homeworkTotal + firstValue;
+      homeworks = homeworks + 1;
+    }
+    firstValue = prompt("Please enter a homework grade that is between 0.0 and 100. When all homework grades have been entered, please enter -1:");
+  }
+  
+  let secondValue = prompt("Please enter a quiz grade that is between 0.0 and 100:");
+  
+  while (Number(secondValue) != -1) {
+    while (Number(secondValue) < -1 || Number(secondValue) > 100) {
+      secondValue = prompt("Please enter a quiz grade between 0.0 and 100. When all the quiz grades have been entered, please enter -1:");
+    } 
+    if (Number(secondValue) == -1) {
+      break;
+    } else if (Number(secondValue) >= 0 && Number(secondValue) <= 100){
+      secondValue = Number(secondValue);
+      quizTotal = quizTotal + secondValue;
+      quizzes = quizzes + 1;
+    }
+    secondValue = prompt("Please enter a quiz grade that is between 0.0 and 100. When all quiz grades have been entered, please enter -1:");
+  }
+  
+  let thirdValue = prompt("Please enter a test grade that is between 0.0 and 100:");
+  
+  while (Number(thirdValue) != -1) {
+    while (Number(thirdValue) < -1 || Number(thirdValue) > 100) {
+      thirdValue = prompt("Please enter a test grade between 0.0 and 100. When all the test grades have been entered, please enter -1:");
+    } 
+     if (Number(thirdValue) == -1) {
+      break;
+    } else if (Number(thirdValue) >= 0 && Number(thirdValue) <= 100){
+      thirdValue = Number(thirdValue);
+      testTotal = testTotal + thirdValue;
+      tests = tests + 1;
+    }
+    thirdValue = prompt("Please enter a test grade between 0.0 and 100. When all test grades have been entered, please enter -1:");
+  }
+  
+  let homeworkGrade = homeworkTotal / homeworks;
+  homeworkGrade = homeworkGrade.toFixed(2);
+  
+  let quizGrade = quizTotal / quizzes;
+  quizGrade = quizGrade.toFixed(2);
+  
+  let testGrade = testTotal / tests;
+  testGrade = testGrade.toFixed(2);
+  
+  let finalGrade = 0.1 * (homeworkGrade) + 0.3 * (quizGrade) + 0.6 * (testGrade);
+  finalGrade = finalGrade.toFixed(2);
+  let reportCardOutput = document.getElementById('report-card-output');
+  reportCardOutput.innerHTML = "Tests: " + testGrade + "<br/>" + "Quizzes: " + quizGrade + "<br/>" + "Homework: " + homeworkGrade + "<br/>" + "Grade: " + finalGrade;
 
   ///////////////////// DO NOT MODIFY
   let tests = 0; ////// DO NOT MODIFY
